@@ -32,3 +32,10 @@ function ig() {
 function gh() {
   navigator.clipboard.writeText('https://github.com/im4nu')
 }
+function allert() {
+  swal({
+    title: 'Valeu!',
+    text: 'Link de compartilhamento copiado! 😎🤙',
+    icon: 'success'
+  })
+}
