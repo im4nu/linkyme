@@ -1,17 +1,82 @@
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 :root {
   --bg-color: hsla(29, 52%, 44%, 0.171);
   --btn-color: hsl(29, 52%, 44%);
+  --txt-color: rgba(0, 0, 0, 0.801);
+
+  --bg-drk-mode: hsl(29, 52%, 44%, 60%);
 }
 body {
   background-color: var(--bg-color);
   font-family: 'Roboto', sans-serif;
+  color: var(--txt-color);
+
+  transition: all, ease 0.5s;
 }
+
+/*DARK-MODE*/
+#btn-dmode {
+  position: absolute;
+  margin-left: 90%;
+  margin-top: 2.4rem;
+
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: 0.8rem;
+  background-color: var(--txt-color);
+  color: rgb(255, 255, 255);
+
+  border: none;
+  transition: all, ease 0.5s;
+}
+#btn-dmode:hover {
+  background-color: rgba(0, 0, 0, 0.486);
+  color: rgb(199, 199, 199);
+}
+.dark .btn-dark-mode #btn-dmode {
+  margin-left: 7%;
+  opacity: 0;
+}
+.dark .btn-dark-mode #btn-lmode {
+  opacity: 1;
+}
+/*LIGHT-MODE*/
+#btn-lmode {
+  position: absolute;
+  margin-left: 90%;
+  margin-top: 2.4rem;
+
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: 0.8rem;
+  background-color: var(--txt-color);
+  color: rgb(255, 255, 255);
+
+  border: none;
+  transition: all, ease 0.5s;
+}
+#btn-lmode:hover {
+  background-color: rgba(0, 0, 0, 0.486);
+  color: rgb(199, 199, 199);
+}
+body .btn-dark-mode #btn-lmode {
+  margin-left: 7%;
+  opacity: 0;
+}
+body .dark .btn-dark-mode #btn-dmode {
+  opacity: 1;
+}
+
+/*=======PAGE CONTENT=======*/
 header {
   display: flex;
-  margin-top: 2.5%;
+  margin-top: 0.5%;
 
   flex-direction: column;
   justify-content: center;
@@ -20,11 +85,16 @@ header {
   padding: 1.6rem 8rem;
   gap: 1rem;
 }
+header h1 {
+  animation: flipInX;
+  animation-duration: 0.8s;
+}
 header p {
   font-family: 'Roboto Mono', monospace;
-  color: rgba(0, 0, 0, 0.801);
+  animation: flipInX;
+  animation-duration: 1s;
 }
-ul {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +102,7 @@ ul {
   padding: 16px 80px;
   gap: 10px;
 }
-ul a {
+.container a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,6 +117,130 @@ ul a {
   font-family: 'Roboto', sans-serif;
   color: white;
 }
-ul a i {
+.container a i {
   padding-right: 5px;
+}
+h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Roboto Mono', monospace;
+  font-size: small;
+
+  margin-top: 2.5rem;
+
+  animation: heartBeat;
+  animation-duration: 0.8;
+}
+
+/*Dark mode theme*/
+body.dark {
+  background-color: var(--bg-drk-mode);
+  transition: all, ease 0.5s;
+}
+
+/* ===========DARK MODE============= */
+a {
+  text-decoration: none;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: left;
+
+  margin-top: 1.5rem;
+}
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper :is(.btn, .link) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  color: #151515;
+  border-radius: 50%;
+}
+
+.btn {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: outline 0.25s;
+}
+
+.active .btn,
+.btn:hover {
+  outline: 5px solid #bb93fc;
+  outline-offset: -4px;
+}
+
+.item {
+  position: absolute;
+  list-style: none;
+  transition: transform 0.5s;
+  transition-delay: var(--d);
+}
+
+.wrapper.active .item:nth-child(1) {
+  transform: translateX(-65px);
+}
+
+.wrapper.active .item:nth-child(2) {
+  transform: translateY(-65px);
+}
+
+.wrapper.active .item:nth-child(3) {
+  transform: translateX(65px);
+}
+
+.link:hover {
+  color: #fff;
+  transition: background-color 0.25s;
+}
+
+.ig:hover {
+  background-image: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+.wa:hover {
+  background-color: rgba(0, 128, 0, 0.671);
+}
+
+.gh:hover {
+  background-color: rgba(128, 128, 128, 0.548);
+}
+
+/*========RESPONSIVIDADE=========*/
+@media (max-width: 700px) {
+  #btn-dmode {
+    position: absolute;
+    margin-left: 80%;
+    margin-top: 2.4rem;
+
+    width: 3rem;
+    height: 3rem;
+
+    border-radius: 0.8rem;
+    background-color: var(--txt-color);
+    color: rgb(255, 255, 255);
+
+    border: none;
+    transition: all, ease 0.5s;
+  }
 }
