@@ -25,16 +25,10 @@ function lightMode() {
 
 function wa() {
   navigator.clipboard.writeText('https://wa.me/5588981583359')
-
-  window.alert('Link de compartilhamento copiado! 😎🤙')
 }
 function ig() {
   navigator.clipboard.writeText('https://www.instagram.com/m4nu.vic/')
-
-  window.alert('Link de compartilhamento copiado! 😎🤙')
 }
 function gh() {
   navigator.clipboard.writeText('https://github.com/im4nu')
-
-  window.alert('Link de compartilhamento copiado! 😎🤙')
 }
