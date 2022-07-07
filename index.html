@@ -6,8 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
 
     <style>
@@ -19,6 +27,14 @@
   </head>
 
   <body>
+    <div class="btn-dark-mode">
+      <button id="btn-dmode" onclick="darkMode()">
+        <i class="bx bxs-moon"></i>
+      </button>
+      <button id="btn-lmode" onclick="lightMode()">
+        <i class="bx bxs-sun"></i>
+      </button>
+    </div>
     <header>
       <div class="img-profile">
         <img
@@ -27,11 +43,10 @@
         />
       </div>
       <div class="inf-profile">
-        <h1>Emmanuel Rodrigues</h1>
-        <p>@m4nu.vic</p>
+        <h1 class="animate__flipInX">Emmanuel Rodrigues</h1>
+        <p class="animate__flipInX">@m4nu.vic</p>
       </div>
     </header>
-
     <ul class="container">
       <a href="https://www.instagram.com/m4nu.vic/" target="_blank">
         <i class="bx bxl-instagram"></i> Instagram
@@ -45,5 +60,32 @@
         <i class="bx bxl-github"></i> Github
       </a>
     </ul>
+    <div class="wrapper">
+      <button class="btn">
+        <i class="ri-share-line"></i>
+      </button>
+      <ul class="list">
+        <li class="item">
+          <a href="#" class="link wa">
+            <i class="bx bxl-whatsapp"></i>
+          </a>
+        </li>
+        <li class="item" style="--d: 0.25s">
+          <a href="#" class="link ig">
+            <i class="ri-instagram-line"></i>
+          </a>
+        </li>
+        <li class="item" style="--d: 0.5s">
+          <a href="#" class="link gh">
+            <i class="bx bxl-github"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <h3 class="animate__heartBeat">
+      Essa já é uma das páginas feitas por mim 😉
+    </h3>
   </body>
+
+  <script src="/console.js"></script>
 </html>
