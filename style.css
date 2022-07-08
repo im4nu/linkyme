@@ -4,25 +4,42 @@
   box-sizing: border-box;
 }
 :root {
-  --bg-color: hsla(29, 52%, 44%, 0.171);
-  --btn-color: hsl(29, 52%, 44%);
+  --bg-color: hsl(0, 0%, 82%);
+  --btn-color: hsl(0, 0%, 26%);
   --txt-color: rgba(0, 0, 0, 0.801);
 
-  --bg-drk-mode: hsl(29, 52%, 44%, 60%);
+  --bg-drk-mode: hsl(0, 0%, 16%);
+  --btn-drk-mode: hsl(0, 0%, 54%);
+  --txt-drk-color: hsl(0, 0%, 100%);
 }
+
+/*Dark moon theme && Lighmode*/
 body {
   background-color: var(--bg-color);
   font-family: 'Roboto', sans-serif;
   color: var(--txt-color);
-
-  transition: all, ease 0.5s;
+  box-shadow: var(--star);
+  transition: all, ease 1.5s;
 }
-
-/*DARK-MODE*/
+body.dark {
+  color: var(--txt-drk-color);
+  background-color: var(--bg-drk-mode);
+  box-shadow: var(--drk-star);
+}
+.centralizado {
+  margin: auto;
+  max-width: 700px;
+}
+.btn-dark-mode {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/*DARK MOON && LIGHT MODE - BTN*/
+#btn-lmode,
 #btn-dmode {
-  position: absolute;
-  margin-left: 90%;
   margin-top: 2.4rem;
+  margin-inline: 10%;
 
   width: 3rem;
   height: 3rem;
@@ -32,45 +49,33 @@ body {
   color: rgb(255, 255, 255);
 
   border: none;
-  transition: all, ease 0.5s;
+  transition: all, ease-out 1s;
 }
-#btn-dmode:hover {
-  background-color: rgba(0, 0, 0, 0.486);
-  color: rgb(199, 199, 199);
-}
-.dark .btn-dark-mode #btn-dmode {
-  margin-left: 7%;
-  opacity: 0;
-}
-.dark .btn-dark-mode #btn-lmode {
-  opacity: 1;
-}
-/*LIGHT-MODE*/
-#btn-lmode {
-  position: absolute;
-  margin-left: 90%;
-  margin-top: 2.4rem;
 
-  width: 3rem;
-  height: 3rem;
-
-  border-radius: 0.8rem;
-  background-color: var(--txt-color);
-  color: rgb(255, 255, 255);
-
-  border: none;
-  transition: all, ease 0.5s;
-}
+#btn-dmode:hover,
 #btn-lmode:hover {
   background-color: rgba(0, 0, 0, 0.486);
   color: rgb(199, 199, 199);
 }
+
+/*Aparecendo e sumindo*/
+body.dark .btn-dark-mode #btn-dmode,
 body .btn-dark-mode #btn-lmode {
-  margin-left: 7%;
   opacity: 0;
 }
-body .dark .btn-dark-mode #btn-dmode {
+body.dark .btn-dark-mode #btn-lmode,
+body .btn-dark-mode #btn-dmode {
   opacity: 1;
+}
+
+/*Animações*/
+.animate__heartBea {
+  animation: heartBeat;
+  animation-duration: 0.8s;
+}
+.animate__flipInX {
+  animation: flipInX;
+  animation-duration: 1s;
 }
 
 /*=======PAGE CONTENT=======*/
@@ -84,15 +89,6 @@ header {
   text-align: center;
   padding: 1.6rem 8rem;
   gap: 1rem;
-}
-header h1 {
-  animation: flipInX;
-  animation-duration: 0.8s;
-}
-header p {
-  font-family: 'Roboto Mono', monospace;
-  animation: flipInX;
-  animation-duration: 1s;
 }
 .container {
   display: flex;
@@ -116,31 +112,32 @@ header p {
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   color: white;
+
+  transition: all, ease-in 0.5s;
+}
+.container a:hover {
+  background-color: hsl(0, 0%, 54%);
+  transition: all, ease-in 0.5s;
+}
+.dark .container a:hover {
+  background-color: hsl(0, 0%, 54%);
+  transition: all, ease-in 0.5s;
 }
 .container a i {
   padding-right: 5px;
 }
-h3 {
+h1 {
+  font-family: 'Dancing Script', cursive;
+}
+#share-p {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  font-family: 'Roboto Mono', monospace;
-  font-size: small;
-
+  font-style: italic;
   margin-top: 2.5rem;
-
-  animation: heartBeat;
-  animation-duration: 0.8;
 }
 
-/*Dark mode theme*/
-body.dark {
-  background-color: var(--bg-drk-mode);
-  transition: all, ease 0.5s;
-}
-
-/* ===========DARK MODE============= */
+/* ===========DARK MOON============= */
 a {
   text-decoration: none;
 }
@@ -158,17 +155,29 @@ a {
   align-items: center;
 }
 
-.wrapper :is(.btn, .link) {
+/*========COMPARTILHAMENTO==========*/
+body.dark .wrapper :is(.btn, .link) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 50px;
   height: 50px;
   background-color: #fff;
-  color: #151515;
+  color: black;
   border-radius: 50%;
+  transition: all, ease-out 0.5s;
 }
-
+.wrapper :is(.btn, .link) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--btn-color);
+  color: var(--bg-color);
+  border-radius: 50%;
+  transition: all, ease-out 0.5s;
+}
 .btn {
   position: absolute;
   border: none;
@@ -177,10 +186,22 @@ a {
   transition: outline 0.25s;
 }
 
+body.dark .wrapper button,
+.wrapper button {
+  transition: all, ease-out 1.5s;
+}
+
 .active .btn,
 .btn:hover {
-  outline: 5px solid #bb93fc;
+  outline: 5px solid var(--bg-color);
   outline-offset: -4px;
+  transition: all, ease-in 0.1s;
+}
+body.dark .active .btn,
+body.dark .btn:hover {
+  outline: 5px solid var(--bg-drk-mode);
+  outline-offset: -4px;
+  transition: all, ease-in 0.1s;
 }
 
 .item {
@@ -219,28 +240,81 @@ a {
 }
 
 .wa:hover {
-  background-color: rgba(0, 128, 0, 0.671);
+  background-color: rgba(53, 146, 53, 0.671);
 }
 
 .gh:hover {
   background-color: rgba(128, 128, 128, 0.548);
 }
+body.dark .ig:hover {
+  background-image: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
 
-/*========RESPONSIVIDADE=========*/
-@media (max-width: 700px) {
-  #btn-dmode {
-    position: absolute;
-    margin-left: 80%;
-    margin-top: 2.4rem;
+body.dark .wa:hover {
+  background-color: rgba(53, 146, 53, 0.671);
+}
 
-    width: 3rem;
-    height: 3rem;
+body.dark .gh:hover {
+  background-color: rgba(128, 128, 128, 0.548);
+}
 
-    border-radius: 0.8rem;
-    background-color: var(--txt-color);
-    color: rgb(255, 255, 255);
-
-    border: none;
-    transition: all, ease 0.5s;
+/*========STAR ANIMATION==========*/
+.stars {
+  width: 3px;
+  height: 3px;
+  margin-left: -23rem;
+  border-radius: 50%;
+  box-shadow: 50px 30px var(--bg-drk-mode), 100px 80px var(--bg-drk-mode),
+    80px 120px var(--bg-drk-mode), 300px 20px var(--bg-drk-mode),
+    250px 130px var(--bg-drk-mode), 200px 50px var(--bg-drk-mode),
+    150px 100px var(--bg-drk-mode), 320px 100px var(--bg-drk-mode);
+  animation: anim-stars 10s linear infinite;
+  transition: all, ease 0.5s;
+}
+@keyframes anim-stars {
+  from {
+    transform: translateY(0px);
   }
+  to {
+    transform: translateY(-150px);
+  }
+}
+.stars::after {
+  content: ' ';
+  width: 3x;
+  height: 3px;
+  border-radius: 50%;
+  box-shadow: 50px 30px var(--bg-drk-mode), 100px 80px var(--bg-drk-mode),
+    80px 120px var(--bg-drk-mode), 300px 20px var(--bg-drk-mode),
+    250px 130px var(--bg-drk-mode), 200px 50px var(--bg-drk-mode),
+    150px 100px var(--bg-drk-mode), 320px 100px var(--bg-drk-mode);
+}
+
+/*====EFFECTS ON DARK MOON======*/
+.dark .stars {
+  width: 3px;
+  height: 3px;
+  margin-left: -23rem;
+  border-radius: 50%;
+  box-shadow: 50px 30px white, 100px 80px white, 80px 120px white,
+    300px 20px white, 250px 130px white, 200px 50px white, 150px 100px white,
+    320px 100px white;
+  animation: anim-stars 10s linear infinite;
+  transition: all, ease 0.5s;
+}
+.dark .stars::after {
+  content: ' ';
+  width: 3x;
+  height: 3px;
+  border-radius: 50%;
+  box-shadow: 50px 30px white, 100px 80px white, 80px 120px white,
+    300px 20px white, 250px 130px white, 200px 50px white, 150px 100px white,
+    320px 100px white;
 }
