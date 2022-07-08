@@ -23,66 +23,80 @@
       @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
     </style>
 
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+    </style>
+
     <title>Links</title>
   </head>
 
   <body>
-    <div class="btn-dark-mode">
-      <button id="btn-dmode" onclick="darkMode()">
-        <i class="bx bxs-moon"></i>
-      </button>
-      <button id="btn-lmode" onclick="lightMode()">
-        <i class="bx bxs-sun"></i>
-      </button>
-    </div>
-    <header>
-      <div class="img-profile">
-        <img
-          src="/assets/perfil.svg"
-          alt="Foto de perfil do usuário emmanuel"
-        />
+    <div class="centralizado">
+      <div class="btn-dark-mode">
+        <button
+          class="animate__fadeInRight"
+          id="btn-lmode"
+          onclick="lightMode()"
+        >
+          <i class="bx bxs-sun"></i>
+        </button>
+        <button class="animate__fadeInLeft" id="btn-dmode" onclick="darkMode()">
+          <i class="bx bxs-moon"></i>
+        </button>
       </div>
-      <div class="inf-profile">
-        <h1 class="animate__flipInX">Emmanuel Rodrigues</h1>
-        <p class="animate__flipInX">@m4nu.vic</p>
-      </div>
-    </header>
-    <ul class="container">
-      <a href="https://wa.me/5588981583359" target="_blank">
-        <i class="bx bxl-whatsapp"></i> Whatsapp
-      </a>
 
-      <a href="https://www.linkedin.com/in/m4nu/" target="_blank">
-        <i class="bx bxl-linkedin"></i> Linkedin
-      </a>
+      <header>
+        <div class="img-profile">
+          <img
+            src="/assets/perfil.svg"
+            alt="Foto de perfil do usuário emmanuel"
+          />
+        </div>
+        <div class="stars"></div>
+        <div class="inf-profile">
+          <h1 class="animate__flipInX">Emmanuel Rodrigues</h1>
+          <p class="animate__flipInX">@m4nu.vic</p>
+        </div>
+      </header>
 
-      <a href="https://github.com/im4nu" target="_blank">
-        <i class="bx bxl-github"></i> Github
-      </a>
-    </ul>
-    <div class="wrapper">
-      <button class="btn">
-        <i class="ri-share-line"></i>
-      </button>
-      <ul class="list">
-        <li class="item">
-          <a onclick=" wa(), allert()" class="link wa">
-            <i class="bx bxl-whatsapp"></i>
-          </a>
-        </li>
-        <li class="item" style="--d: 0.25s">
-          <a onclick="ig() , allert()" class="link ig">
-            <i class="ri-instagram-line"></i>
-          </a>
-        </li>
-        <li class="item" style="--d: 0.5s">
-          <a onclick="gh() , allert()" class="link gh">
-            <i class="bx bxl-github"></i>
-          </a>
-        </li>
+      <ul class="container">
+        <a href="https://wa.me/5588981583359" target="_blank">
+          <i class="bx bxl-whatsapp"></i> Whatsapp
+        </a>
+
+        <a href="https://www.linkedin.com/in/m4nu/" target="_blank">
+          <i class="bx bxl-linkedin"></i> Linkedin
+        </a>
+
+        <a href="https://github.com/im4nu" target="_blank">
+          <i class="bx bxl-github"></i> Github
+        </a>
       </ul>
+
+      <div class="wrapper">
+        <button class="btn">
+          <i class="ri-share-line"></i>
+        </button>
+        <ul class="list">
+          <li class="item">
+            <a onclick=" wa(), allert()" class="link wa">
+              <i class="bx bxl-whatsapp"></i>
+            </a>
+          </li>
+          <li class="item" style="--d: 0.25s">
+            <a onclick="ig() , allert()" class="link ig">
+              <i class="ri-instagram-line"></i>
+            </a>
+          </li>
+          <li class="item" style="--d: 0.5s">
+            <a onclick="gh() , allert()" class="link gh">
+              <i class="bx bxl-github"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <p id="share-p"class="animate__heartBeat">Compartilhe meu perfil!</p>
     </div>
-    <h3 class="animate__heartBeat">Compartilhe meu perfil!</h3>
   </body>
 
   <script src="/console.js"></script>
